@@ -1,0 +1,38 @@
+﻿@model List<Employee>
+@if (!Model.Any())
+{
+	<tr>
+		<td colspan="2">
+			<div class="alert alert-warning alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h5><i class="icon fas fa-exclamation-triangle"></i> Alert!</h5>
+				No Data Found
+			</div>
+		</td>
+	</tr>
+
+}
+else
+{
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th style="width: 10px">Id</th>
+				<th>Name</th>
+				<th>Title</th>
+				<th>Age</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in @Model)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.Name</td>
+					<td>@item.Title</td>
+					<td>@item.Age</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
