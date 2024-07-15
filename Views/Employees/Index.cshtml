@@ -1,4 +1,13 @@
 ﻿@model List<Employee>
+@section Title {
+Employees
+}
+@section SubTitle {
+Show
+}
+@section Buttons {
+<a asp-controller="Employees" asp-action="Create" class="btn btn-primary">Create</a>
+}
 @if (!Model.Any())
 {
 	<tr>
@@ -18,9 +27,9 @@ else
 		<thead>
 			<tr>
 				<th style="width: 10px">Id</th>
-				<th>Name</th>
-				<th>Title</th>
-				<th>Age</th>
+				<th >Name</th>
+				<th >Title</th>
+				<th >Age</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -36,3 +45,8 @@ else
 		</tbody>
 	</table>
 }
+
+
+
+
+

@@ -14,12 +14,20 @@ namespace WebApplication_MVC_task1.Controllers
 		}
 		public IActionResult Index()
 		{
-			var employees = new List<Employee>
-			{
-				new Employee { Id = 1, Name = "Ahmad", Title = "Manager", Age = 45 },
-				new Employee { Id = 2, Name = "Raghad", Title = "Engineer", Age = 30 },
-				new Employee { Id = 3, Name = "Tala", Title = "Accounting", Age = 28 }
-			}; return View(employees);
-		}
-	}
+            var employees = context.Employees.ToList();
+            return View(employees);
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Employee employee)
+        {
+            context.Employees.Add(employee);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+    }
 }
