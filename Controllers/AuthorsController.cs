@@ -18,24 +18,6 @@ namespace WebApplication_MVCProject.Controllers
 		public IActionResult Index()
 		{
 			var authors = context.Authors.ToList();
-            /*var authorsvm = new List<AuthorVM>();
-			foreach(var author in authors)
-			{
-				var authorvm = new AuthorVM()
-				{
-					Id = author.Id,
-					Name = author.Name,
-					CreatedOn = author.CreatedOn,
-					UpdatedOn = author.UpdatedOn,
-				};
-				authorsvm.Add(authorvm);
-			}
-			return View(authorsvm);
-		}
-
-		public IActionResult Create()
-		{
-			return View("Form", new AuthorFormVM());*/
 
             var authorsVM = authors.Select(author => new AuthorVM
             {
@@ -48,9 +30,6 @@ namespace WebApplication_MVCProject.Controllers
 
             return View(authorsVM);
         }
-
-
-
 
 
 		[HttpPost]
